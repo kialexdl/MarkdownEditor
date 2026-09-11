@@ -70,7 +70,9 @@ cargo test --manifest-path src-tauri/Cargo.toml
 .\scripts\package.ps1 -SkipTests
 ```
 
-打包脚本与 CI workflow 都保存在仓库中；推送 `v*` tag 后，CI 会在 Windows Runner 上构建便携 ZIP 并更新草稿 Release。
+打包脚本与 CI workflow 都保存在仓库中。推送 `v*` tag、手动运行工作流，或向 `main` 推送提交消息包含 `[release]` 的提交，会在 Windows Runner 上完成检查、测试和便携 ZIP 构建后创建正式 Release。tag 必须与 `package.json` 版本一致；已存在的 Release 不会被自动覆盖。普通提交和 PR 只检查、构建并保留 Actions 产物。
+
+发布下载：[GitHub Releases](https://github.com/kialexdl/MarkdownEditor/releases)。Actions 产物同时保留本次构建生成的依赖锁文件。
 
 便携版仍依赖系统 WebView2 Runtime，Windows 11 通常已内置；Git 历史功能仍要求本机预先安装 Git for Windows。
 
