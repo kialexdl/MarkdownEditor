@@ -1,0 +1,44 @@
+{
+  "name": "markdown-editor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "validate:source": "node scripts/validate-source.mjs",
+    "check:rust": "cargo check --manifest-path src-tauri/Cargo.toml",
+    "test:rust": "cargo test --manifest-path src-tauri/Cargo.toml",
+    "verify": "pnpm validate:source && pnpm check && pnpm build && pnpm test:rust",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.8.1",
+    "@codemirror/lang-markdown": "^6.3.4",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/merge": "^6.12.2",
+    "@codemirror/search": "^6.5.11",
+    "@codemirror/state": "^6.7.1",
+    "@codemirror/view": "^6.43.7",
+    "@lezer/highlight": "^1.2.3",
+    "@tauri-apps/api": "^2.11.1",
+    "dompurify": "^3.2.6",
+    "markdown-it": "^15.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "mermaid": "^11.9.0",
+    "svelte": "^5.56.10"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/markdown-it": "^14.1.2",
+    "svelte-check": "^4.7.6",
+    "typescript": "^5.9.2",
+    "vite": "^8.1.0"
+  },
+  "packageManager": "pnpm@11.19.0"
+}

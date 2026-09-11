@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "MarkdownEditor",
+  "version": "0.1.0",
+  "identifier": "com.markdowneditor.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "MarkdownEditor",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 860,
+        "minHeight": 560,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": false,
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "category": "DeveloperTool",
+    "shortDescription": "轻量级多工作区 Markdown 编辑器",
+    "longDescription": "支持 Markdown 编辑、预览、分屏、Mermaid、自动保存和只读 Git 历史。"
+  }
+}
